@@ -1,0 +1,154 @@
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: black;
+}
+
+.project-form label {
+	margin-right: 15px;
+}
+.project-form p {
+	padding-bottom: 20px;
+}
+.project-form tr {
+	height: 35px;
+}
+#btnHoliCus, #btnExcpCus {
+	text-decoration: underline;
+	display: inline;
+	cursor: pointer;
+	margin-left: 15px;
+}
+td.nonworking {
+	background-color: #BBB;
+}
+td.working-holiday {
+	font-weight: bold;
+	box-shadow: inset 0px 0px 0px 0px #000, inset 0px 0px 0px 0px #000;
+}
+td.holiday {
+	background-color: #BBB;
+	font-weight: bold;
+	box-shadow: inset 0px 0px 0px 0px #000, inset 0px 0px 0px 0px #000;
+}
+#tblCalendar td {
+	text-align: center;
+}
+#tblWorkweek td {
+	width: 30px;
+}
+button.ui-datepicker-trigger {
+	border: none;
+	text-decoration: underline;
+	background-color: #CCC;
+}
+#dpHolidays, #dpExceptions {
+	width: 15px;
+	visibility: hidden;
+}
+
+#txtProjName, #txtProjID {
+  text-transform: uppercase;
+}
+
+#btnReset, #btnSubmit {
+	margin-left: 20px;
+}
+#printProjName {
+	word-wrap: break-word;
+  text-transform: uppercase;
+}
+
+#printProjID {
+  text-transform: uppercase;
+}
+
+#printContent {
+	padding: 40px 20px 30px 20px;
+}
+#printButtons {
+	position: absolute;
+    top: 15px;
+    right: 20px;
+}
+#iconWorking {
+	width: 25px;
+	height: 20px;
+	border: solid 1px black;
+	margin: 20px 12px -5px 20px;
+	display: inline-block;
+}
+#iconNonWorking {
+	width: 25px;
+	height: 20px;
+	background-color: #BBB;
+	border: solid 1px black;
+	margin: 20px 12px -5px 20px;
+	display: inline-block;
+}
+#iconHoliday {
+	width: 50px;
+	height: 20px;
+
+	margin: 20px 12px -5px 0px;
+	display: inline-block;
+	line-height: 18px;
+	font-weight: bold;
+	text-align: right;
+}
+.num-alert, .name-alert {
+	color: red;
+	margin-top: -15px;
+	display: none;
+}
+#divMoratOptions {
+	text-align: center;
+}
+#divMoratOptions input[type="text"] {
+	width: 90px;
+	margin: 5px;
+}
+.del-morat {
+	margin-right: 15px;
+	border-radius: 20px;
+}
+.del-morat:focus {outline: 0;}
+#addMorat {
+	margin-top: 20px;
+	border-radius: 20px;
+}
+#addMorat:focus {outline: 0;}
+
+
+td.holid:not(.ui-state-highlight) {
+	width: 32px;
+}
+td.holid:not(.ui-state-highlight) a {
+	width: 32px;
+	white-space: nowrap;
+	overflow-x: hidden;
+	background: #743620 none !important;
+	color: white !important;
+}
+td.holid:not(.ui-state-highlight) a::before {
+	content: "\00a0 \00a0 H \00a0 \00a0 ";
+}
+td.holid.ui-state-highlight a{
+	border: 1px solid #d3d3d3 !important;
+    background: #e6e6e6 url(https://code.jquery.com/ui/1.12.0/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x !important;
+    color: #555555 !important;
+}

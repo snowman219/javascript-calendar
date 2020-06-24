@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Project Calendar Generator</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="./scripts/jquery-ui.multidatespicker.js" type="text/javascript"></script>
+  <script src='./scripts/my_calendar.js' type="text/javascript" charset="utf-8"></script>
+  <script src='./scripts/jspdf/jspdf.min.js' type="text/javascript" charset="utf-8"></script>
+  <script src='./scripts/script.js' type="text/javascript" charset="utf-8"></script>
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./styles/jquery-ui.multidatespicker.css">
+  <link rel='stylesheet' type='text/css' href='./styles/style.css'>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center">Project Calendar Generator</h3>
+      <br>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="project-form">
+
+          <div class="row">
+            <div class="col-sm-2"><label>Project Name: </label></div>
+            <div class="col-sm-10"><input type="text" id="txtProjName" size="40"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10 name-alert">Please input the project name with less than 120 characters.</div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-sm-2"><label>Project ID No: </label></div>
+            <div class="col-sm-10"><input type="text" id="txtProjID" size="14"></div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-sm-2"><label>Project Duration: </label></div>
+            <div class="col-sm-10"><input type="text" id="txtProjDur" size=5>&emsp; Working Days</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10 num-alert">Please input an integer value between 1 to 1000.</div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-sm-2"><label>Start Date: </label></div>
+            <div class="col-sm-10"><input type="text" id="dpStartDate" size=20></div>
+          </div>
+          <br>
+
+          <p>
+            <label>Workweek: </label>
+            <table id="tblWorkweek"></table>
+          </p>
+          <p>
+            <label>Exception: </label>
+            <table>
+              <tr>
+                <td width="50px">Yes</td><td width="50px">No</td><td></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="chkHoliYes"></td>
+                <td><input type="checkbox" id="chkHoliNo"></td>
+                <td>
+                  Work Allowed on Holidays
+                  <!-- <div id="btnHoliCus">Customize</div> -->
+                  <input type="text" id="dpHolidays">
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="chkExcpYes"></td>
+                <td><input type="checkbox" id="chkExcpNo"></td>
+                <td>
+                  Other Exceptions
+                  <!-- <div id="btnExcpCus">Customize</div> -->
+                  <input type="text" id="dpExceptions">
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="chkMoratYes"></td>
+                <td><input type="checkbox" id="chkMoratNo"></td>
+                <td>
+                  Moratoriums
+                </td>
+              </tr>
+            </table>
+            <div id="divMoratOptions">
+              <button type="button" class="btn btn-default" id="addMorat">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </div>
+          </p>
+          <p>
+            <a href="index.html" font-color="black"><button id='btnReset'>RESET</button></a>
+            <button id='btnSubmit' data-toggle="modal" data-target="#printModal">SUBMIT</button>
+          </p>
+        </div>
+
+      </div>
+      <div class="col-sm-6">
+        <label>Preview: </label>
+        <div id="divCal"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="printModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="printContent">
+          <p class="h4" id="printProjName"></p>
+          <p class="h5" id="printProjID"></p>
+          <div id="printCalTable"></div>
+          <p>
+            <span id='iconWorking'></span> = Work Allowed
+            <span id='iconNonWorking'></span> = No Work Allowed
+            <span id='iconHoliday'>H</span> = Holiday
+          </p>
+        </div>
+        <div id="printButtons">
+          <button id='btnPrint'>SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
